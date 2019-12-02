@@ -4,7 +4,7 @@
 
 - This project demonstrates a potential security flaw on **Azure application services** (also called **Azure-websites**)
 
-- When the logging is activated on the app service and when a server responds with a set-cookie without the *secure* flag, like this:
+- When the CORS settings are used to limit CSRF on the app service and when a server responds with a set-cookie without the *secure* flag, like this:
  
  ```
 'Set-Cookie': `randomCookie=test; Path=/; HttpOnly; SameSite=Lax`,
@@ -32,8 +32,6 @@
 
 - Once created, use the deployment center to deploy the source code available in this public github: https://github.com/jcbaey/azurewebsites-cookie
 
-![azure-web-app-logging](./images/azure-web-app-logging.png 'azure-web-app-logging')  
-
 - Open the created website `https://<your app>.azurewebsites.net` for instance https://cookie-rswl.azurewebsites.net/
 - The website dumps the content of **req.headers.cookie** and **req.headers**
 - **The cookie header should be empty** at this step.
@@ -44,3 +42,8 @@
 - **The cookie header should be empty** at this step but THIS IS NOT THE CASE. 
 
 ![global-cookie-issue](./images/global-cookie-issue.png 'global-cookie-issue')  
+
+- This issue occurs when the CORS settings are used. If you have at least one entry in this page (which is the case by default, you get '*'), the issue happens:
+
+![azure-cors-settings](./images/azure-cors-settings.png 'azure-cors-settings')  
+
