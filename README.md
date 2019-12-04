@@ -24,17 +24,9 @@
 
 - This issue cannot be reproduced on local nor in a dedicated VM. Only in Azure web-app.
 
-- as soon as I discovered the security hole, I created a *severity A* case on Monday 2nd of December 2019 to the support.
+- As soon as I discovered this bug, I created a *severity A* case on Monday 2nd of December 2019 to the support.
 
-Microsoft statements:
-
-> Business Impact : All of the users are impacted by the issue, as when they log-in, another identity is provided to their account, which is leading to name spoofing, and sensitive data can be leaked
-
-> Products Impacted: Azure Web App (Linux) 
-
-> The support professional concluded that it is a known issue, and a fix will be provided during 2020. The Microsoft Engineer has requested the product group to investigate to check if there is a fix that can be deployed earlier for [...]'s environment.
-
-- Because of my insistence, Microsoft has created a public issue on MS Github: https://github.com/Azure/app-service-announcements-discussions/issues/128
+- Microsoft has created a public issue on MS Github following my request: https://github.com/Azure/app-service-announcements-discussions/issues/128
 
 ## Steps to reproduce
 
